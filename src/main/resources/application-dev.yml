@@ -23,6 +23,21 @@ spring:
     username: root
     password: root132!
 
+security:
+  jwt:
+    token:
+      secret-key: atdd-secret-key
+      expire-length: 3600000
+
+kakao:
+  auth:
+    token-uri: https://kauth.kakao.com/oauth/token
+    client-id: tech-blog-hub-client
+    redirect-uri: /api/auth/kakao/callback
+
+  user:
+    profile-uri: https://kapi.kakao.com/v2/user/me
+
 logging:
   level:
     org.springframework.orm.jpa: DEBUG

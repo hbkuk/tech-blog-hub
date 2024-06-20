@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: tech-mysql-test
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: test!32
+      TZ: Asia/Seoul
+      MYSQL_DATABASE: tech_test
+      MYSQL_USER: tech_test
+      MYSQL_PASSWORD: test!32
+    command:
+      - --character-set-server=UTF8MB4
+      - --collation-server=UTF8MB4_UNICODE_CI
+      - --lower_case_table_names=1
+
+  redis:
+    image: redis:6.2
+    container_name: tech-redis
+    ports:
+      - 6379:6379
+    command: redis-server --appendonly yes

@@ -3,10 +3,8 @@ package com.techbloghub.core.post.application;
 import com.techbloghub.common.util.ApplicationTest;
 import com.techbloghub.core.post.domain.Post;
 import com.techbloghub.core.post.domain.PostRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageImpl;
@@ -22,7 +20,7 @@ import static com.techbloghub.core.blog.domain.Blog.우아한형제들;
 import static com.techbloghub.core.post.util.PostTestUtil.게시글_테스트_데이터_생성하기;
 import static org.mockito.Mockito.*;
 
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD) // 테스트 메서드간 캐싱 동작으로 인한 Spring 컨테이너 초기화
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD) // 테스트 메서드간 캐싱 동작으로 인한 Spring 컨테이너 초기화
 @DisplayName("게시글 서비스 Mock 테스트")
 public class PostServiceMockTest extends ApplicationTest {
 
@@ -31,11 +29,6 @@ public class PostServiceMockTest extends ApplicationTest {
 
     @MockBean
     PostRepository postRepository;
-
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
 
     @Test
     @DisplayName("페이지 정보에 따른 게시글 목록 조회 요청은 캐싱된다.")

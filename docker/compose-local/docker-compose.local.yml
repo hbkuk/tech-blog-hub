@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: tech-mysql-local
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: local!32
+      TZ: Asia/Seoul
+      MYSQL_DATABASE: tech_local
+      MYSQL_USER: tech_local
+      MYSQL_PASSWORD: local!32
+    command:
+      - --character-set-server=UTF8MB4
+      - --collation-server=UTF8MB4_UNICODE_CI
+      - --lower_case_table_names=1

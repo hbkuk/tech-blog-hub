@@ -1,4 +1,4 @@
-package com.techbloghub.common.exception.unauth;
+package com.techbloghub.common.exception.auth;
 
 import com.techbloghub.common.exception.common.ErrorType;
 import lombok.Getter;
